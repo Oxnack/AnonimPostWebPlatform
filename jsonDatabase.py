@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from jsonschema import validate, ValidationError
 import json
 
-file_path = 'data.json' # путь к jsony
+file_path = 'PostsData.json' # путь к jsony
 
 with open(file_path, 'r', encoding='utf-8') as f:
     data =  json.load(f)
@@ -23,7 +23,7 @@ app = Flask(__name__)
 def get_posts():
     return jsonify(data)
 
-@app.route('/api/post/passhqck7273', methods=['POST'])     #тут пароль на доступ к постингу прямо в urlке, клиенты самостоятельно не постят
+@app.route('/api/post/passhqck7273', methods=['POST'])     #тут пароль на доступ к постингу прямо в urlке :), клиенты самостоятельно не постят
 def receive_data():
     hookData = request.get_json()
 

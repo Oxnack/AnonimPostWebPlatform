@@ -30,12 +30,10 @@ def upload():
     image_file = request.files['image']
     unknown_file = request.files['file']
 
-    # Создаем директорию для сохранения файлов, если она не существует
-    os.makedirs('uploads', exist_ok=True)
 
     # Сохраняем файлы
-    image_path = os.path.join('uploads', picture_name)
-    unknown_path = os.path.join('uploads', file_name)
+    image_path = os.path.join('/var/www/html/images', picture_name)
+    unknown_path = os.path.join('/var/www/html/files', file_name)
 
     image_file.save(image_path)
     unknown_file.save(unknown_path)
